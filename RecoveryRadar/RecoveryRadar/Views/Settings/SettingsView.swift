@@ -81,9 +81,9 @@ struct SettingsView: View {
 
     private var legalSection: some View {
         Section {
-            Link("Privacy Policy", destination: URL(string: "https://asunnyboy861.github.io/RecoveryRadar/privacy")!)
-            Link("Terms of Use", destination: URL(string: "https://asunnyboy861.github.io/RecoveryRadar/terms")!)
-            Link("Support", destination: URL(string: "https://asunnyboy861.github.io/RecoveryRadar/support")!)
+            Link("Privacy Policy", destination: URL(string: "https://asunnyboy861.github.io/RecoveryRadar/privacy/")!)
+            Link("Terms of Use", destination: URL(string: "https://asunnyboy861.github.io/RecoveryRadar/terms/")!)
+            Link("Support", destination: URL(string: "https://asunnyboy861.github.io/RecoveryRadar/support/")!)
         } header: {
             Text("Legal")
         }
