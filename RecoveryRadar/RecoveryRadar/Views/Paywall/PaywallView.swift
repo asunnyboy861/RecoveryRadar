@@ -34,6 +34,12 @@ struct PaywallView: View {
             .task {
                 await storeManager.loadProducts()
                 await storeManager.updatePurchasedProducts()
+                autoSelectProduct()
+            }
+            .onChange(of: storeManager.isLoading) { _, newValue in
+                if !newValue {
+                    autoSelectProduct()
+                }
             }
         }
     }
@@ -125,13 +131,13 @@ struct PaywallView: View {
                     ProgressView()
                         .tint(.white)
                 } else {
-                    Text("Subscribe Now")
+                    Text(buttonTitle)
                         .bold()
                 }
             }
             .frame(maxWidth: .infinity)
             .padding()
-            .background(.green)
+            .background(selectedProduct == nil || storeManager.products.isEmpty ? Color.gray : Color.green)
             .foregroundStyle(.white)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .disabled(isPurchasing || selectedProduct == nil || storeManager.products.isEmpty)
@@ -153,6 +159,13 @@ struct PaywallView: View {
             .multilineTextAlignment(.center)
     }
 
+    private var buttonTitle: String {
+        guard let product = selectedProduct else { return "Select a Plan" }
+        if product.id.contains(".lifetime") { return "Buy Now" }
+        if product.id.contains(".yearly") { return "Start Free Trial" }
+        return "Subscribe Now"
+    }
+
     private func purchase() {
         guard let product = selectedProduct else { return }
         isPurchasing = true
@@ -164,6 +177,18 @@ struct PaywallView: View {
                 print("Purchase failed: \(error)")
             }
             isPurchasing = false
+        }
+    }
+
+    private func autoSelectProduct() {
+        if selectedProduct == nil {
+            if let yearly = storeManager.yearlyProduct {
+                selectedProduct = yearly
+            } else if let monthly = storeManager.monthlyProduct {
+                selectedProduct = monthly
+            } else if let lifetime = storeManager.lifetimeProduct {
+                selectedProduct = lifetime
+            }
         }
     }
 }
