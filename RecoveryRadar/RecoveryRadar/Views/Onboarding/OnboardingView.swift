@@ -15,6 +15,8 @@ struct OnboardingView: View {
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
         .indexViewStyle(.page(backgroundDisplayMode: .always))
+        .frame(maxWidth: 720)
+        .frame(maxWidth: .infinity)
     }
 
     private func welcomePage() -> some View {
@@ -25,7 +27,7 @@ struct OnboardingView: View {
                 .foregroundStyle(.green.gradient)
             Text("RecoveryRadar")
                 .font(.title.bold())
-            Text("Know which muscles are ready to train — and which need rest.")
+            Text("Know which muscles are ready to train -- and which need rest.")
                 .font(.body)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
@@ -77,16 +79,15 @@ struct OnboardingView: View {
 
             Spacer()
             Button(action: requestHealthAuth) {
-                Label("Authorize Health Access", systemImage: "heart.text.square")
+                Label("Continue", systemImage: "heart.text.square")
             }
             .buttonStyle(.borderedProminent)
             .disabled(isRequestingAuth)
 
-            Button("Skip for Now") {
-                onComplete()
-            }
-            .foregroundStyle(.secondary)
-            .padding(.bottom, 40)
+            Text("You can change Health access anytime in Settings.")
+                .font(.caption)
+                .foregroundStyle(.tertiary)
+                .padding(.bottom, 40)
         }
     }
 

@@ -6,6 +6,8 @@ struct PaywallView: View {
     @State private var storeManager = StoreManager.shared
     @State private var isPurchasing = false
     @State private var selectedProduct: Product?
+    @State private var loadError: String?
+    @State private var loadTimeout = false
 
     var body: some View {
         NavigationStack {
@@ -18,6 +20,8 @@ struct PaywallView: View {
                     termsNotice
                 }
                 .padding()
+                .frame(maxWidth: 720)
+                .frame(maxWidth: .infinity)
             }
             .background(Color(.systemBackground))
             .navigationTitle("Go Pro")
@@ -64,7 +68,40 @@ struct PaywallView: View {
     private var pricingCards: some View {
         VStack(spacing: 12) {
             if storeManager.isLoading {
-                ProgressView()
+                ProgressView("Loading plans...")
+                    .padding(.vertical, 40)
+            } else if let error = loadError {
+                VStack(spacing: 12) {
+                    Image(systemName: "exclamationmark.triangle")
+                        .font(.system(size: 32))
+                        .foregroundStyle(.orange)
+                    Text(error)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                    Button("Retry") {
+                        Task {
+                            loadError = nil
+                            await storeManager.loadProducts()
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                .padding(.vertical, 40)
+            } else if storeManager.products.isEmpty {
+                VStack(spacing: 12) {
+                    Image(systemName: "exclamationmark.circle")
+                        .font(.system(size: 32))
+                        .foregroundStyle(.orange)
+                    Text("Subscription plans are not available in this region.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                    Text("Please contact support@zzoutuo.com for assistance.")
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
+                }
+                .padding(.vertical, 40)
             } else {
                 if let monthly = storeManager.monthlyProduct {
                     PricingCard(product: monthly, badge: nil, isSelected: selectedProduct?.id == monthly.id) {
@@ -97,7 +134,7 @@ struct PaywallView: View {
             .background(.green)
             .foregroundStyle(.white)
             .clipShape(RoundedRectangle(cornerRadius: 12))
-            .disabled(isPurchasing || selectedProduct == nil)
+            .disabled(isPurchasing || selectedProduct == nil || storeManager.products.isEmpty)
         }
     }
 
