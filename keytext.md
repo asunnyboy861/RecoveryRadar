@@ -1,95 +1,56 @@
-# Keytext Validation - RecoveryRadar
-
-## App Name
-| Field | Value | Limit | Status |
-|-------|-------|-------|--------|
-| App Name | RecoveryRadar | 30 chars | PASS (14 chars) |
-
-## Subtitle
-| Field | Value | Limit | Status |
-|-------|-------|-------|--------|
-| Subtitle | Smart Muscle Recovery Tracker | 30 chars | PASS (30 chars) |
-
-## Keywords
-| Field | Value | Limit | Status |
-|-------|-------|-------|--------|
-| Keywords | muscle recovery, recovery tracker, workout recovery, muscle tracker, body recovery, strain tracker, Apple Watch recovery, rest day, overtraining, muscle fatigue, recovery score, heat map, training load, fitness recovery, muscle groups | 100 chars | NEEDS TRIM |
-
-### Keywords Trimmed (100 char limit)
-| Field | Value | Limit | Status |
-|-------|-------|-------|--------|
-| Keywords | muscle recovery,workout recovery,muscle tracker,body recovery,strain tracker,rest day,overtraining,muscle fatigue,heat map,training load | 100 chars | PASS (98 chars) |
-
-## Description
-| Field | Value | Limit | Status |
-|-------|-------|-------|--------|
-| Description | (see metadata.md) | 4000 chars | PASS |
+# App Store Metadata
 
 ## Promotional Text
-| Field | Value | Limit | Status |
-|-------|-------|-------|--------|
-| Promotional Text | Know which muscles are ready to train — and which need rest. Science-backed muscle recovery tracking with zero manual input. | 170 chars | PASS (126 chars) |
-
-## What's New
-| Field | Value | Limit | Status |
-|-------|-------|-------|--------|
-| What's New | Welcome to RecoveryRadar! This is our initial release featuring: Interactive body heat map, Automatic workout sync, EMG-driven muscle mapping, Exponential decay recovery algorithm, Smart training suggestions, Privacy-first design, Free tier with core features | 4000 chars | PASS |
-
-## ASCII Validation
-| Field | Contains Non-ASCII | Status |
-|-------|-------------------|--------|
-| App Name | No | PASS |
-| Subtitle | No | PASS |
-| Keywords | No | PASS |
-| Promotional Text | Contains em dash (—) | WARN: Replace with -- |
-| What's New | No | PASS |
-
-### Promotional Text Fixed
-| Field | Value | Status |
-|-------|-------|--------|
-| Promotional Text | Know which muscles are ready to train -- and which need rest. Science-backed muscle recovery tracking with zero manual input. | PASS |
-
-## Subscription Display Name Validation
-| Product ID | Display Name | Limit | Status |
-|------------|-------------|-------|--------|
-| com.zzoutuo.RecoveryRadar.pro.monthly | RecoveryRadar Pro Monthly | 30 chars | PASS (25 chars) |
-| com.zzoutuo.RecoveryRadar.pro.yearly | RecoveryRadar Pro Yearly | 30 chars | PASS (24 chars) |
-| com.zzoutuo.RecoveryRadar.pro.lifetime | RecoveryRadar Pro Lifetime | 30 chars | PASS (26 chars) |
-
-## URL Validation
-| Field | URL | Status |
-|-------|-----|--------|
-| Privacy Policy | https://asunnyboy861.github.io/RecoveryRadar/privacy | PASS (valid URL) |
-| Terms of Use | https://asunnyboy861.github.io/RecoveryRadar/terms | PASS (valid URL) |
-| Support | https://asunnyboy861.github.io/RecoveryRadar/support | PASS (valid URL) |
-
-## Compliance Checklist
-| Requirement | Status |
-|-------------|--------|
-| App name <= 30 chars | PASS |
-| Subtitle <= 30 chars | PASS |
-| Keywords <= 100 chars | PASS (after trim) |
-| No non-ASCII in keywords | PASS |
-| Subscription display names <= 30 chars | PASS |
-| Privacy Policy URL provided | PASS |
-| Terms of Use URL provided | PASS |
-| Support URL provided | PASS |
-| Auto-renewal terms in Terms | PASS |
-| Cancellation instructions in Terms | PASS |
-| Free trial terms in Terms | PASS |
-| Restore purchases in app | PASS |
-| No price in app name/subtitle | PASS |
-
-## Final Validated Keytext
-
-### App Name
-RecoveryRadar
-
-### Subtitle
-Smart Muscle Recovery Tracker
-
-### Keywords (100 chars)
-muscle recovery,workout recovery,muscle tracker,body recovery,strain tracker,rest day,overtraining,muscle fatigue,heat map,training load
-
-### Promotional Text
 Know which muscles are ready to train -- and which need rest. Science-backed muscle recovery tracking with zero manual input.
+
+## Description
+RecoveryRadar tells you exactly which muscles are ready to train -- and which need rest.
+
+Stop guessing when to train the same muscle group again. RecoveryRadar automatically reads your workout data from Apple Health, identifies which muscles you trained using science-backed EMG mapping, and calculates precise recovery percentages for each muscle group.
+
+KEY FEATURES:
+
+Interactive Body Heat Map -- See your muscle recovery at a glance with a color-coded body map. Green means ready, orange means recovering, red means fatigued. Tap any muscle for details.
+
+Zero-Input Automation -- No manual logging required. RecoveryRadar automatically reads workouts from Apple Health, whether you train with Apple Watch, iPhone Fitness, or third-party apps like Strava.
+
+Science-Backed Recovery Algorithm -- Recovery is calculated using an exponential decay model based on EMG-driven muscle activation data, training intensity, and time elapsed.
+
+16 Muscle Groups Tracked -- From pectoralis major to gastrocnemius, every major muscle group is monitored with individual recovery percentages.
+
+Smart Training Suggestions -- Get personalized recommendations on which muscles to train today based on your recovery status.
+
+Apple Health Integration -- Reads workouts, heart rate, HRV, and sleep data to provide the most accurate recovery insights.
+
+Privacy First -- All data is processed and stored on your device. No cloud servers, no accounts, no tracking. Your health data stays on your iPhone.
+
+FREE TIER INCLUDES:
+- Front body heat map visualization
+- Overall recovery score
+- 5 major muscle group tracking
+- Basic training suggestions
+- 7-day workout history
+
+UPGRADE TO PRO:
+- Front + back body heat map views
+- All 16 muscle groups with precise recovery percentages
+- Detailed training suggestions with intensity guidance
+- Unlimited workout history
+- Recovery trends (7D / 30D / 90D)
+- HRV trend analysis
+- Muscle detail sheets with recovery timeline
+- Manual RPE adjustment
+- CSV data export
+
+Whether you are a strength trainer, CrossFit athlete, or anyone who takes recovery seriously, RecoveryRadar gives you the data-driven insights to train smarter and avoid overtraining.
+
+SUBSCRIPTION INFORMATION:
+- Payment will be charged to your Apple ID account at confirmation of purchase.
+- Subscription automatically renews unless it is canceled at least 24 hours before the end of the current period.
+- You can manage and cancel your subscriptions by going to your account settings on the App Store after purchase.
+- Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription.
+
+Terms of Use (EULA): https://asunnyboy861.github.io/RecoveryRadar/terms/
+
+## Keywords
+muscle recovery,workout recovery,muscle tracker,body recovery,rest day,overtraining,heat map
